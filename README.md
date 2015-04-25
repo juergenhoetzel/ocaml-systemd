@@ -21,14 +21,14 @@ debugging information.
 
 Getting the callstack at runtime also results in an performance overhead, so there a 2 groups of journal functions:
 
-With location fields:
+## Journal functions with location info
 
 ```OCaml
 val journal_send_message_loc : Priority.t -> string -> unit
 val journal_send_loc : (string * string) list -> unit
 ```
 
-Without location fields:
+## Journal functions without location info
 
 ```OCaml
 val journal_send : (string * string) list -> unit
