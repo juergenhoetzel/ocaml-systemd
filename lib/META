@@ -1,0 +1,11 @@
+# OASIS_START
+# DO NOT EDIT (digest: 36479e32f8899c7bf659439c20a5989e)
+version = "1"
+description = "OCaml systemd library"
+archive(byte) = "journald.cma"
+archive(byte, plugin) = "journald.cma"
+archive(native) = "journald.cmxa"
+archive(native, plugin) = "journald.cmxs"
+exists_if = "journald.cma"
+# OASIS_STOP
+

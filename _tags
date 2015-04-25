@@ -1,0 +1,25 @@
+# OASIS_START
+# DO NOT EDIT (digest: dcada1e9e9e678f87b4c8e5862a5f043)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+true: annot, bin_annot
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library journald
+"lib/journald.cmxs": use_journald
+<lib/journald.{cma,cmxa}>: oasis_library_journald_cclib
+"lib/libjournald_stubs.lib": oasis_library_journald_cclib
+"lib/dlljournald_stubs.dll": oasis_library_journald_cclib
+"lib/libjournald_stubs.a": oasis_library_journald_cclib
+"lib/dlljournald_stubs.so": oasis_library_journald_cclib
+<lib/journald.{cma,cmxa}>: use_libjournald_stubs
+# OASIS_STOP
