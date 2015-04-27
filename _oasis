@@ -15,3 +15,9 @@ Library journald
   Modules:      Journald
   CSources:     journald_stubs.c
   CCLib:        -lsystemd
+
+Document "systemd_api"
+  Type: ocamlbuild (0.4)
+  XOCamlbuildPath: .
+  Title: API reference for systemd
+  XOCamlbuildLibraries: systemd
