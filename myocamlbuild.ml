@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: b72b6cc097a3c7fc81d8b3fd5f76e586) *)
+(* DO NOT EDIT (digest: c05404b8df904bc4e32d9141fa2200f1) *)
 module OASISGettext = struct
 (* # 22 "src/oasis/OASISGettext.ml" *)
 
@@ -607,13 +607,13 @@ end
 open Ocamlbuild_plugin;;
 let package_default =
   {
-     MyOCamlbuildBase.lib_ocaml = [("journald", ["lib"], [])];
-     lib_c = [("journald", "lib", [])];
+     MyOCamlbuildBase.lib_ocaml = [("systemd", ["lib"], [])];
+     lib_c = [("systemd", "lib", [])];
      flags =
        [
-          (["oasis_library_journald_cclib"; "link"],
+          (["oasis_library_systemd_cclib"; "link"],
             [(OASISExpr.EBool true, S [A "-cclib"; A "-lsystemd"])]);
-          (["oasis_library_journald_cclib"; "ocamlmklib"; "c"],
+          (["oasis_library_systemd_cclib"; "ocamlmklib"; "c"],
             [(OASISExpr.EBool true, S [A "-lsystemd"])])
        ];
      includes = []

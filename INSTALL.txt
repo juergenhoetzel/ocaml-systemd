@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 40bdefd0ee6faf45199d8af10cd70d0e) *)
+(* DO NOT EDIT (digest: a6a59487f85f2bdc3d20a39064082bc2) *)
 
 This is the INSTALL file for the ocaml-systemd distribution.
 
@@ -10,8 +10,9 @@ Dependencies
 ============
 
 In order to compile this package, you will need:
-                                                * ocaml (>= 4.02.0)
-                                                * findlib
+
+* ocaml (>= 4.02.0) for all, doc systemd_api
+* findlib
 
 Installing
 ==========

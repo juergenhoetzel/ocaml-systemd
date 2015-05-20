@@ -1,19 +1,19 @@
 OASISFormat: 0.4
 Name:        ocaml-systemd
 OCamlVersion: >= 4.02.0
-Version:     1
+Version:     1.1
 Synopsis:    OCaml systemd library
 Authors:     Jürgen Hötzel
 License:     LGPL-3 with OCaml linking exception
 Plugins:     META (0.4), StdFiles (0.4), DevFiles (0.4)
 BuildTools:  ocamldoc, ocamlbuild
 
-Library journald
+Library systemd
   Path:		lib
   BuildTools: 	ocamlbuild
   FindlibName:  systemd
-  Modules:      Journald
-  CSources:     journald_stubs.c
+  Modules:      Journald, Daemon
+  CSources:     journald_stubs.c, daemon_stubs.c
   CCLib:        -lsystemd
 
 Document "systemd_api"
