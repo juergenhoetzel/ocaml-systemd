@@ -12,16 +12,16 @@ module State : sig
       | Watchdog		(* Update the watchdog timestamp *)
   end				(* FDSTORE not implemented yet *)
 
-(** [daemon_notify unset_environment state] Send a message to the init
+(** [notify unset_environment state] Send a message to the init
 system about a status change. If the status was sent return true. May
 raise [Unix_error] *)
-val daemon_notify : bool -> State.t -> bool
+val notify : bool -> State.t -> bool
 
-(** [daemon_listen_fds unset_environment] Return the number of
+(** [listen_fds unset_environment] Return the number of
 descriptors passed to this process by the init system as part of the
 socket-based activation logic or raises [Unix_error] *)
-val daemon_listen_fds : bool -> int
+val listen_fds : bool -> int
 
-(** [daemon_booted] Return true if this system is running under
+(** [booted] Return true if this system is running under
 systemd. or raises [Unix_error] *)
-val daemon_booted : unit -> bool
+val booted : unit -> bool

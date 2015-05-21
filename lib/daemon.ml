@@ -10,23 +10,23 @@ module State = struct
       | Watchdog		(* Update the watchdog timestamp *)
   end				(* FDSTORE not implemented yet *)
 
-external caml_daemon_code_of_unix_error : Unix.error -> int = "caml_daemon_code_of_unix_error"
-external caml_daemon_notify : bool -> string -> bool = "caml_daemon_notify"
+external caml_code_of_unix_error : Unix.error -> int = "caml_daemon_code_of_unix_error"
+external caml_notify : bool -> string -> bool = "caml_daemon_notify"
 
-let daemon_notify unset_environment state =
+let notify unset_environment state =
   let open State in
   let s = match state with
     | Ready -> "READY=1"
     | Reloading -> "RELOADING=1"
     | Stopping -> "STOPPING=1"
     | Status s -> "STATUS=" ^ s
-    | Error u -> "ERRNO=" ^ (string_of_int (caml_daemon_code_of_unix_error u))
+    | Error u -> "ERRNO=" ^ (string_of_int (caml_code_of_unix_error u))
     | Bus_error s -> "BUSERROR=" ^ s
     | Main_pid i -> "MAINPID=" ^ (string_of_int i)
     | Watchdog -> "WATCHDOG=1"
-  in caml_daemon_notify unset_environment s
+  in caml_notify unset_environment s
 
 (* direct mappings *)
-external daemon_listen_fds : bool -> int = "caml_daemon_listen_fds"
-external daemon_booted : unit -> bool = "caml_daemon_booted"
+external listen_fds : bool -> int = "caml_daemon_listen_fds"
+external booted : unit -> bool = "caml_daemon_booted"
 
