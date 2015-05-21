@@ -1,0 +1,2 @@
+* Daemon
+** TODO Store additional file descriptors in the Systemd (using sd_pid_notify_with_fds)
