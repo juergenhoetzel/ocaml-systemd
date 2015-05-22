@@ -29,7 +29,7 @@ CAMLprim value caml_daemon_booted() {
 
 /* internal */
 CAMLprim value caml_daemon_code_of_unix_error(value unix_error) {
-  return Val_int(-code_of_unix_error(unix_error));
+  return Val_int(code_of_unix_error(unix_error));
 }
 
 CAMLprim value caml_daemon_notify(value unset_environment, value state) {
