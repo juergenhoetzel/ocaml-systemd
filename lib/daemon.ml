@@ -13,7 +13,7 @@ module State = struct
 external caml_code_of_unix_error : Unix.error -> int = "caml_daemon_code_of_unix_error"
 external caml_notify : bool -> string -> bool = "caml_daemon_notify"
 
-let notify unset_environment state =
+let notify ?(unset_environment = false) state =
   let open State in
   let s = match state with
     | Ready -> "READY=1"
@@ -26,7 +26,8 @@ let notify unset_environment state =
     | Watchdog -> "WATCHDOG=1"
   in caml_notify unset_environment s
 
-(* direct mappings *)
-external listen_fds : bool -> int = "caml_daemon_listen_fds"
+external caml_listen_fds : bool -> int = "caml_daemon_listen_fds"
+
+let listen_fds ?(unset_environment = true) () = caml_listen_fds unset_environment
 external booted : unit -> bool = "caml_daemon_booted"
 
