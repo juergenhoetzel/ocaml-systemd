@@ -1,3 +1,7 @@
+# ocaml-systemd [![Build Status](https://api.travis-ci.org/juergenhoetzel/ocaml-systemd.svg)](https://travis-ci.org/juergenhoetzel/ocaml-systemd/)
+
+OCaml library allowing interaction with systemd and journald
+
 # Basic Usage
 
 ```OCaml
