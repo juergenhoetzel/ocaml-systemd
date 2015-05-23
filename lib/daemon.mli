@@ -20,7 +20,7 @@ val notify : ?unset_environment : bool -> State.t -> bool
 (** [listen_fds ?unset_environment] returns the number of
 descriptors passed to this process by the init system as part of the
 socket-based activation logic or raises [Unix_error] *)
-val listen_fds : ?unset_environment : bool -> unit -> int
+val listen_fds : ?unset_environment : bool -> unit -> Unix.file_descr list
 
 (** [booted] Return true if this system is running under
 systemd. or raises [Unix_error] *)

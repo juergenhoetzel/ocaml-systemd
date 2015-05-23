@@ -26,8 +26,9 @@ let notify ?(unset_environment = false) state =
     | Watchdog -> "WATCHDOG=1"
   in caml_notify unset_environment s
 
-external caml_listen_fds : bool -> int = "caml_daemon_listen_fds"
+external caml_listen_fds : bool -> Unix.file_descr list = "caml_daemon_listen_fds"
 
-let listen_fds ?(unset_environment = true) () = caml_listen_fds unset_environment
+let listen_fds ?(unset_environment = true) () = caml_listen_fds unset_environment;
+
 external booted : unit -> bool = "caml_daemon_booted"
 
