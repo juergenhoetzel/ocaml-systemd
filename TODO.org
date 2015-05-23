@@ -1,2 +1,5 @@
 * Daemon
 ** TODO Store additional file descriptors in the Systemd (using sd_pid_notify_with_fds)
+
+* Journald
+** TODO [[http://lists.freedesktop.org/archives/systemd-devel/2012-November/007359.html][Async logging like in libvirt]]
