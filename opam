@@ -18,4 +18,5 @@ depexts: [
   [["debian"] ["libsystemd-dev"]]
   [["ubuntu"] ["libsystemd-dev"]]
   [["centos"] ["systemd-devel"]]
+  [["fedora"] ["systemd-devel"]]
 ]
