@@ -22,4 +22,5 @@ true: annot, bin_annot
 "lib/libsystemd_stubs.a": oasis_library_systemd_cclib
 "lib/dllsystemd_stubs.so": oasis_library_systemd_cclib
 <lib/systemd.{cma,cmxa}>: use_libsystemd_stubs
+<lib/daemon.ml{,i}>: use_unix
 # OASIS_STOP
