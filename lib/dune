@@ -1,0 +1,9 @@
+(library
+  (name systemd)
+  (public_name systemd)
+  (wrapped false)
+  (libraries unix)
+  (c_library_flags -lsystemd)
+  (foreign_stubs
+    (language c)
+    (names daemon_stubs journald_stubs)))
