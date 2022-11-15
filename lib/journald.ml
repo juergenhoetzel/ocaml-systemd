@@ -20,9 +20,9 @@ let get_location () = match (get_callstack 3 |> backtrace_slots) with
   | None -> None
 
 let journal_send_loc l = match get_location () with
-  | Some {filename; line_number} -> journal_send (("CODE_FILE", filename)::("CODE_LINE", string_of_int line_number)::l)
+  | Some {filename; line_number; _} -> journal_send (("CODE_FILE", filename)::("CODE_LINE", string_of_int line_number)::l)
   | None -> journal_send l
 
 let journal_send_message_loc p s = match get_location () with
-  | Some {filename; line_number} -> journal_send (("CODE_FILE", filename)::("CODE_LINE", string_of_int line_number)::(default_entries p s))
+  | Some {filename; line_number; _} -> journal_send (("CODE_FILE", filename)::("CODE_LINE", string_of_int line_number)::(default_entries p s))
   | None -> journal_send_message p s
