@@ -1,8 +1,0 @@
-(* OASIS_START *)
-(* DO NOT EDIT (digest: 4e4e889c07c9f66fe66619566287cb84) *)
-
-Authors of ocaml-systemd:
-
-* Jürgen Hötzel
-
-(* OASIS_STOP *)

@@ -1,0 +1,27 @@
+opam-version: "2.0"
+maintainer: "Juergen Hoetzel <juergen@archlinux.org>"
+authors: "Juergen Hoetzel <juergen@archlinux.org>"
+homepage: "https://github.com/juergenhoetzel/ocaml-systemd/"
+bug-reports:  "https://github.com/juergenhoetzel/ocaml-systemd/issues"
+dev-repo: "git+https://github.com/juergenhoetzel/ocaml-systemd.git"
+license: "LGPL-3.0-only WITH OCaml-LGPL-linking-exception"
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+depends: [
+  "ocaml" {>= "4.06.0"}
+  "dune" {>= "2.0"}
+]
+depexts: [
+  ["libsystemd-dev"] {os-family = "debian"}
+  ["systemd-devel"] {os-distribution = "centos"}
+  ["systemd-devel"] {os-distribution = "fedora"}
+]
+synopsis: "OCaml module for native access to the systemd facilities"
+description: """
+* Logging to the Journal
+* Socket activation
+* Watchdog
+* Notifications"""
+flags: light-uninstall

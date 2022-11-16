@@ -1,41 +1,22 @@
-# OASIS_START
-# DO NOT EDIT (digest: a3c674b4239234cbbe53afe090018954)
 
-SETUP = ocaml setup.ml
+PROFILE=release
 
-build: setup.data
-	$(SETUP) -build $(BUILDFLAGS)
+build:
+	dune build --profile=$(PROFILE)
 
-doc: setup.data build
-	$(SETUP) -doc $(DOCFLAGS)
+doc:
+	dune build @doc
 
-test: setup.data build
-	$(SETUP) -test $(TESTFLAGS)
+test:
+	dune runtest
 
-all:
-	$(SETUP) -all $(ALLFLAGS)
-
-install: setup.data
-	$(SETUP) -install $(INSTALLFLAGS)
+install:
+	dune install
 
 uninstall: setup.data
-	$(SETUP) -uninstall $(UNINSTALLFLAGS)
-
-reinstall: setup.data
-	$(SETUP) -reinstall $(REINSTALLFLAGS)
+	dune uninstall
 
 clean:
-	$(SETUP) -clean $(CLEANFLAGS)
-
-distclean:
-	$(SETUP) -distclean $(DISTCLEANFLAGS)
-
-setup.data:
-	$(SETUP) -configure $(CONFIGUREFLAGS)
-
-configure:
-	$(SETUP) -configure $(CONFIGUREFLAGS)
+	dune clean
 
 .PHONY: build doc test all install uninstall reinstall clean distclean configure
-
-# OASIS_STOP

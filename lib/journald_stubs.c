@@ -40,11 +40,16 @@ CAMLprim value caml_journal_send(value v_slist) {
   while ( v_slist != Val_emptylist ) {
       head = Field(v_slist, 0);
       iovecs[i].iov_len = caml_string_length(head);
-      iovecs[i].iov_base = String_val(head);
+      iovecs[i].iov_base = caml_stat_strdup(String_val(head));
       v_slist = Field(v_slist, 1);
       i++;
   }
+
   sd_journal_sendv(iovecs, count);
+
+  for( i = 0; i < count; i++) {
+      caml_stat_free(iovecs[i].iov_base);
+  }
   caml_stat_free(iovecs);
   CAMLreturn(Val_unit);
 }
